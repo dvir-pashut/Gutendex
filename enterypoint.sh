@@ -6,10 +6,5 @@
 
 ./manage.py collectstatic
 
-echo "#!/bin/bash  ./manage.py collectstatic" > static.sh
-
-chmod 777 startic.sh
-./static.sh
-rm static.sh
-
+echo "starting server on port 8000"
 ./manage.py runserver 0.0.0.0:8000
