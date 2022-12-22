@@ -1,5 +1,5 @@
 FROM python:3.9
-RUN apt-get update && apt install rysinc
+RUN apt-get update -y && apt install rysinc -y 
 WORKDIR /app
 COPY /gutendex /app
 RUN pip install -r requirements.txt
