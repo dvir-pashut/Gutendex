@@ -1,5 +1,4 @@
 #!/bin/sh
-ls
 
 ./manage.py migrate
 

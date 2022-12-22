@@ -3,4 +3,4 @@ WORKDIR /app
 COPY /gutendex /app
 RUN pip install -r requirements.txt
 COPY enterypoint.sh .
-RUN ./enterypoint.sh
+ENTRYPOINT [ "./enterypoint.sh" ]
