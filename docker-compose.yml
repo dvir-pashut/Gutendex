@@ -20,13 +20,13 @@ services:
 
 
   post_db:
-    container_name: es
+    container_name: post_db
     image:  postgres:14
     environment:  
+      POSTGRES_USER: gutendex
       POSTGRES_PASSWORD: password
       PGDATA: /var/lib/postgresql/data/pgdata
-      POSTGRES_DB: gutendex
-      POSTGRES_USER: gutendex
+      
     volumes:
       - /custom/mount:/var/lib/postgresql/data
 
