@@ -37,7 +37,8 @@ networks:
   nginx-app:
   app-db:
     
-    
+volumes:
+  dvir:
     
 
 
