@@ -1,22 +1,23 @@
 version: '3'
 
 services:
-  # nginx:
-  #   container_name: nginx
-  #   image: nginx:alpine
-  #   ports:
-  #     - "80:80"
-  #   depends_on:
-  #     - app
-  #   volumes:
-  #     - './nginx/nginx.conf:/etc/nginx/conf.d/default.conf' 
-  #     - "./flask-app:/app"
-    
+  nginx:
+    container_name: nginx
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    depends_on:
+      - app
+    volumes:
+      - "./nginx/nginx.conf:/etc/nginx/conf.d/default.conf" 
+      - "./progect/static:/app/static"
+      - "./progect/gutendex/templates:/app/gutendex/templates"
+  
   app:
     container_name: app
     build: .
-    ports:
-      - 8000:8000
+    # ports:
+    #   - 8000:8000
     depends_on:
       post_db:
         condition: service_healthy
