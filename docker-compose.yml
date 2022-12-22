@@ -21,6 +21,8 @@ services:
     depends_on:
       post_db:
         condition: service_healthy
+    volumes:
+      - /gutendex/static:/var/www/gutendex/static-root/
 
 
   post_db:
