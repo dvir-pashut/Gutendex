@@ -23,12 +23,12 @@ services:
     container_name: post_db
     image:  postgres:14
     environment:  
-      POSTGRES_USER: gutendex
-      POSTGRES_PASSWORD: password
-      PGDATA: /var/lib/postgresql/data/pgdata
+       - POSTGRES_USER=gutendex
+       - POSTGRES_PASSWORD=password
+       - PGDATA=/var/lib/postgresql/data/pgdata
       
     volumes:
-      - /custom/mount:/var/lib/postgresql/data
+      - dvir:/var/lib/postgresql/data
 
 
 
