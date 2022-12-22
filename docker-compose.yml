@@ -12,6 +12,8 @@ services:
       - "./nginx/nginx.conf:/etc/nginx/conf.d/default.conf" 
       - "./gutendex/static:/usr/share/nginx/html/static"
       - "./gutendex/gutendex/templates:/usr/share/nginx/html/gutendex/templates/"
+    networks:
+      - nginx-app
   
   app:
     container_name: app
@@ -23,17 +25,22 @@ services:
         condition: service_healthy
     volumes:
       - /gutendex/static:/var/www/gutendex/static-root/
+    networks:
+      - app-db
+      - nginx-app
 
 
   post_db:
     container_name: post_db
-    image:  postgres:14
+    image:  postgres:14-alpine3.17
     environment:  
        - POSTGRES_USER=gutendex
        - POSTGRES_PASSWORD=password
        - PGDATA=/var/lib/postgresql/data/pgdata
     volumes:
       - dvir:/var/lib/postgresql/data
+    networks:
+      - app-db
     healthcheck:
       test: ["CMD-SHELL", "psql -U gutendex"]
       interval: 10s
