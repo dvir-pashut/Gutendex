@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+  # nginx:
+  #   container_name: nginx
+  #   image: nginx:alpine
+  #   ports:
+  #     - "80:80"
+  #   depends_on:
+  #     - app
+  #   volumes:
+  #     - './nginx/nginx.conf:/etc/nginx/conf.d/default.conf' 
+  #     - "./flask-app:/app"
+    
+  # app:
+  #   container_name: app
+  #   build: ./flask-app
+  #   depends_on:
+  #     - post_db
+
+
+  post_db:
+    container_name: es
+    image:  postgres:14
+    environment:  
+      POSTGRES_PASSWORD: password
+      PGDATA: /var/lib/postgresql/data/pgdata
+      POSTGRES_DB: gutendex
+      POSTGRES_USER: gutendex
+    volumes:
+      - /custom/mount:/var/lib/postgresql/data
+
+
+
+
+networks:
+  nginx-app:
+  app-db:
+    
+    
+    
+
+
