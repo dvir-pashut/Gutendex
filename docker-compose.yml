@@ -12,11 +12,11 @@ services:
   #     - './nginx/nginx.conf:/etc/nginx/conf.d/default.conf' 
   #     - "./flask-app:/app"
     
-  # app:
-  #   container_name: app
-  #   build: ./flask-app
-  #   depends_on:
-  #     - post_db
+  app:
+    container_name: app
+    build: .
+    depends_on:
+      - post_db
 
 
   post_db:
