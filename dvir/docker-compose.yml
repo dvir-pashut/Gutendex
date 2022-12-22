@@ -24,7 +24,6 @@ services:
       post_db:
         condition: service_healthy
     volumes:
-      - /gutendex/static:/var/www/gutendex/static-root/
     networks:
       - app-db
       - nginx-app
@@ -46,8 +45,6 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-
-
 
 
 networks:
