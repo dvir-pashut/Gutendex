@@ -1,6 +1,5 @@
 nginx
 gutendex/static
-gutendex/gutendex
 Dockerfile
 docker-compose.yml
 .git
